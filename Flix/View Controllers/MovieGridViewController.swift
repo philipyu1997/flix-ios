@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class MovieGridViewController: UIViewController {
+class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     var movies = [[String:Any]]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
         // Do any additional setup after loading the view.
         
@@ -33,7 +38,7 @@ class MovieGridViewController: UIViewController {
                 self.movies = dataDictionary["results"] as! [[String:Any]]
                 
                 // Reload your table view data
-//                self.tableView.reloadData()
+                self.collectionView.reloadData()
                 
                 print(self.movies)
             }
@@ -42,6 +47,28 @@ class MovieGridViewController: UIViewController {
         task.resume()
         
     } // end viewDidLoad function
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return movies.count
+        
+    } // end collectionView method
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieGridCell", for: indexPath) as! MovieGridCell
+        
+        let movie = movies[indexPath.item]
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie["poster_path"] as! String
+        let posterUrl = URL(string: baseUrl + posterPath)
+        
+        cell.posterView.af_setImage(withURL: posterUrl!)
+        
+        return cell
+        
+    } // end collectionView method
     
     /*
     // MARK: - Navigation
