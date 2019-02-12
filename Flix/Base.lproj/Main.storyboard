@@ -68,6 +68,7 @@
                                             <outlet property="posterView" destination="mem-eN-kwA" id="kI6-BU-DG3"/>
                                             <outlet property="synopsisLabel" destination="L5Y-Bz-tlc" id="cvs-IT-a57"/>
                                             <outlet property="titleLabel" destination="HJ5-Cm-ruU" id="gFt-Nl-ZJm"/>
+                                            <segue destination="yJ3-ZL-Rcu" kind="show" id="UlU-hE-RLd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,6 +91,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="22.906403940886701"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="qZZ-8y-ffJ">
+            <objects>
+                <viewController id="yJ3-ZL-Rcu" customClass="MovieDetailsViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XHf-SG-P5P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5lt-ug-PFc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSw-DR-3D7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1813" y="17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z8l-fq-Iwh">
