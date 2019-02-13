@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSw-DR-3D7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="771"/>
+            <point key="canvasLocation" x="865" y="781"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="Z8l-fq-Iwh">
@@ -194,6 +194,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="posterView" destination="TEC-CW-uzl" id="bF8-9R-ufW"/>
+                                            <segue destination="yJ3-ZL-Rcu" kind="show" id="oDa-Sd-pIS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -253,4 +254,7 @@
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UlU-hE-RLd"/>
+    </inferredMetricsTieBreakers>
 </document>

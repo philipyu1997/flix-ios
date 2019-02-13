@@ -142,14 +142,12 @@
 		72B8D153220C212800AEC5B0 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				72C2C0D82214B6FE00068BB3 /* Storyboards */,
+				72C2C0D72214B6DE00068BB3 /* Cells */,
 				72A865B022125A27007E483E /* View Controllers */,
 				72B8D154220C212800AEC5B0 /* AppDelegate.swift */,
-				72B8D158220C212800AEC5B0 /* Main.storyboard */,
 				72B8D15B220C212900AEC5B0 /* Assets.xcassets */,
-				72B8D15D220C212900AEC5B0 /* LaunchScreen.storyboard */,
 				72B8D160220C212900AEC5B0 /* Info.plist */,
-				725F4DBB220CF4C9008F414D /* MovieCell.swift */,
-				72A865B7221276A0007E483E /* MovieGridCell.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -170,6 +168,24 @@
 				72B8D176220C212900AEC5B0 /* Info.plist */,
 			);
 			path = FlixUITests;
+			sourceTree = "<group>";
+		};
+		72C2C0D72214B6DE00068BB3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				725F4DBB220CF4C9008F414D /* MovieCell.swift */,
+				72A865B7221276A0007E483E /* MovieGridCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		72C2C0D82214B6FE00068BB3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				72B8D158220C212800AEC5B0 /* Main.storyboard */,
+				72B8D15D220C212900AEC5B0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		E92473C90B64052AF7E2A232 /* Pods */ = {
