@@ -24,7 +24,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Do any additional setup after loading the view.
         
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=***REMOVED***")!
+        let apiKey = "***REMOVED***"
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -41,7 +42,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 // Reload your table view data
                 self.tableView.reloadData()
                 
-                print(dataDictionary)
+//                print(dataDictionary)
             }
         }
         
@@ -83,8 +84,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
-        print("Loading up movie details")
-        UINavigationBar.appearance().tintColor = .black
+//        print("Loading up movie details")
         
         // Find the selected movie
         let cell = sender as! UITableViewCell

@@ -31,7 +31,8 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
         // Do any additional setup after loading the view.
         
-        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=***REMOVED***&language=en-US&page=1")!
+        let apiKey = "***REMOVED***"
+        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=\(apiKey)&language=en-US&page=1")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -43,12 +44,12 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
                 
                 // Get the array of movies
                 // Store the movies in a property to use elsewhere
-                self.movies = dataDictionary["results"] as! [[String:Any]]
+                self.movies = dataDictionary["results"] as! [[String:Any]]                
                 
                 // Reload your table view data
                 self.collectionView.reloadData()
                 
-                print(self.movies)
+//                print(self.movies)
             }
         }
         
@@ -85,7 +86,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        print("Loading up movie details")
+//        print("Loading up movie details")
         
         // Find the selected movie
         let cell = sender as! UICollectionViewCell
