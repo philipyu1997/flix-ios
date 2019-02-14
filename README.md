@@ -12,12 +12,11 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 #### BONUS
 - [x] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [x] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ### App Walkthough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
-
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+#### iPhone X, GIF Demo
+<img src="https://media.giphy.com/media/8YWZC5WqsQDoz6S2Cu/giphy.gif" width=250><br>
 
 ### Notes
 Describe any challenges encountered while building the app.
@@ -36,9 +35,9 @@ Describe any challenges encountered while building the app.
 - [x] (1pt) Run your app on a real device.
 
 ### App Walkthough GIF
-#### Real iPhone GIF Demo
+#### iPhone X, GIF Demo
 <img src="https://media.giphy.com/media/nyr3BeN75zML0Xy8iU/giphy.gif" width=250><br>
-#### iPad Air Simulator GIF Demo
+#### iPad Air Simulator, GIF Demo
 <img src="http://g.recordit.co/mGsd6htNVO.gif" width=250><br>
 
 ### Notes

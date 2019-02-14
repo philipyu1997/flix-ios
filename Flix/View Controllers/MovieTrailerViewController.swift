@@ -40,7 +40,7 @@ class MovieTrailerViewController: UIViewController {
                 let ytKey = movie["key"] as! String
                 let ytTrailerUrl = URL(string: ytBaseUrl + ytKey + ytAutoplay)
                 let ytTrailerRequest = URLRequest(url: ytTrailerUrl!)
-                self.movieWebView.load(yt_video_request)
+                self.movieWebView.load(ytTrailerRequest)
             }
         }
         
