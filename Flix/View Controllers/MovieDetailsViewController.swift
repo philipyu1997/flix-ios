@@ -11,13 +11,14 @@ import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
     
-    // global variables
+    // Properties
+    var movie: [String:Any]!
+    
+    // Outlets
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
-    
-    var movie: [String:Any]!
     
     override func viewDidLoad() {
         
@@ -51,14 +52,14 @@ class MovieDetailsViewController: UIViewController {
     
     // MARK: - Navigation
     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         
         let movieTrailerViewController = segue.destination as! MovieTrailerViewController
         movieTrailerViewController.movieId = movie["id"] as! Int
         
-     } // end prepare function
+    } // end prepare function
     
 } // end MovieDetailsViewController class

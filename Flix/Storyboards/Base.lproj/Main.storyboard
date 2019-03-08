@@ -43,7 +43,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5Y-Bz-tlc">
-                                                    <rect key="frame" x="123" y="42" width="238" height="21"/>
+                                                    <rect key="frame" x="123" y="42" width="238" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -191,6 +191,7 @@
                             <constraint firstItem="6q3-bb-TZL" firstAttribute="top" secondItem="sW5-ck-PX0" secondAttribute="top" id="JJO-4D-4Fn"/>
                             <constraint firstItem="W2z-Xt-AhM" firstAttribute="top" secondItem="6q3-bb-TZL" secondAttribute="bottom" constant="8" id="O2P-5v-Xjp"/>
                             <constraint firstItem="W2z-Xt-AhM" firstAttribute="trailing" secondItem="sW5-ck-PX0" secondAttribute="trailing" id="QCG-mT-KYo"/>
+                            <constraint firstItem="6q3-bb-TZL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sW5-ck-PX0" secondAttribute="leading" symbolic="YES" id="Qb7-pV-15N"/>
                             <constraint firstItem="W2z-Xt-AhM" firstAttribute="leading" secondItem="sW5-ck-PX0" secondAttribute="leading" id="SzV-7R-azX"/>
                             <constraint firstItem="sW5-ck-PX0" firstAttribute="trailing" secondItem="6q3-bb-TZL" secondAttribute="trailing" constant="16" id="WIR-o9-BZP"/>
                         </constraints>

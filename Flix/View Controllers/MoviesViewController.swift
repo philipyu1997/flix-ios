@@ -11,18 +11,20 @@ import AlamofireImage
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // global variables
-    @IBOutlet weak var tableView: UITableView!
+    // Properties
     var movies = [[String:Any]]()
+    
+    // Outlets
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+        
         tableView.dataSource = self
         tableView.delegate = self
-        
-        // Do any additional setup after loading the view.
         
         let apiKey = "***REMOVED***"
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
@@ -41,8 +43,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 // Reload your table view data
                 self.tableView.reloadData()
-                
-//                print(dataDictionary)
             }
         }
         
@@ -54,7 +54,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         return movies.count;
         
-    } // end tableView function
+    } // end tableView(numberOfRowsInSection) function
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -75,16 +75,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
         
-    } // end tableView function
+    } // end tableView(cellForRowAt) function
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-//        print("Loading up movie details")
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         
         // Find the selected movie
         let cell = sender as! UITableViewCell
@@ -97,6 +96,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-     } // end prepare function
+    } // end prepare function
     
 } // end MoviesViewController class

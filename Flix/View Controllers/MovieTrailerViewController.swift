@@ -11,9 +11,12 @@ import WebKit
 
 class MovieTrailerViewController: UIViewController {
     
-    @IBOutlet weak var movieWebView: WKWebView!
+    // Properties
     var movieId = Int()
     var movies = [[String:Any]]()
+    
+    // Outlets
+    @IBOutlet weak var movieWebView: WKWebView!
     
     override func viewDidLoad() {
         
@@ -45,7 +48,7 @@ class MovieTrailerViewController: UIViewController {
         }
         
         task.resume()
-
+        
     } // end viewDidLoad function
     
     @IBAction func dismissModal(_ sender: Any) {

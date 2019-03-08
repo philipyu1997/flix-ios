@@ -10,10 +10,12 @@ import UIKit
 import AlamofireImage
 
 class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
-    // global variables
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // Properties
     var movies = [[String:Any]]()
+    
+    // Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         
@@ -28,7 +30,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
-
+        
         // Do any additional setup after loading the view.
         
         let apiKey = "***REMOVED***"
@@ -48,8 +50,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
                 
                 // Reload your table view data
                 self.collectionView.reloadData()
-                
-//                print(self.movies)
             }
         }
         
@@ -61,7 +61,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return movies.count
         
-    } // end collectionView method
+    } // end collectionView(numberOfItemsInSection) function
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -77,7 +77,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return cell
         
-    } // end collectionView method
+    } // end collectionView(cellForItemAt) function
     
     // MARK: - Navigation
     
@@ -86,7 +86,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-//        print("Loading up movie details")
         
         // Find the selected movie
         let cell = sender as! UICollectionViewCell
@@ -100,5 +99,5 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.deselectItem(at: indexPath, animated: true)
         
     } // end prepare function
-
+    
 } // end MovieGridViewController class
