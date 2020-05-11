@@ -11,55 +11,62 @@ import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
     
-    // Properties
-    var movie: [String:Any]!
-    
     // Outlets
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     
+    // Properties
+    var movie: [String: Any]!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        fetchMovieDetails()
+        
+    }
+    
+    func fetchMovieDetails() {
+        
+        guard let posterPath = movie["poster_path"] as? String else {
+            fatalError("Failed to get movie poster.")
+        }
+        guard let backdropPath = movie["backdrop_path"] as? String else {
+            fatalError("Failed to get movie backdrop.")
+        }
+        
+        let baseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterUrl = URL(string: baseUrl + posterPath)
+        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
         
         titleLabel.text = movie["title"] as? String
         titleLabel.sizeToFit()
         synopsisLabel.text = movie["overview"] as? String
         synopsisLabel.sizeToFit()
         
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl + posterPath)
+        posterView.af.setImage(withURL: posterUrl!)
+        backdropView.af.setImage(withURL: backdropUrl!)
         
-        posterView.af_setImage(withURL: posterUrl!)
-        
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
-        
-        backdropView.af_setImage(withURL: backdropUrl!)
-        
-    } // end viewDidLoad function
+    }
     
     @IBAction func onClick(_ sender: Any) {
         
         performSegue(withIdentifier: "firstSegue", sender: nil)
         
-    } // end onClick function
+    }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         
-        let movieTrailerViewController = segue.destination as! MovieTrailerViewController
-        movieTrailerViewController.movieId = movie["id"] as! Int
+        guard let movieTrailerViewController = segue.destination as? MovieTrailerViewController else {
+            fatalError("Failed to set segue destination as MovieTrailerViewController")
+        }
         
-    } // end prepare function
+        if let movieId = movie["id"] as? Int {
+            movieTrailerViewController.movieId = movieId
+        }
+        
+    }
     
-} // end MovieDetailsViewController class
+}

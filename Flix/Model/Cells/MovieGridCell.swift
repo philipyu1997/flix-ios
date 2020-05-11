@@ -13,4 +13,4 @@ class MovieGridCell: UICollectionViewCell {
     // Outlets
     @IBOutlet weak var posterView: UIImageView!
     
-} // end MovieGridCell class
+}
