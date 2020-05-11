@@ -7,14 +7,4 @@ target 'Flix' do
   # Pods for Flix
   pod "AlamofireImage"
 
-  target 'FlixTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'FlixUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
