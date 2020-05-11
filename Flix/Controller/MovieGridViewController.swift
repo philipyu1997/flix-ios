@@ -15,9 +15,13 @@ class MovieGridViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // Properties
-    let API_KEY = "***REMOVED***"
+    let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
     var url: URL {
-        return URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=\(API_KEY)&language=en-US&page=1")!
+        guard let apiKey = API_KEY else {
+            fatalError("Error fetching API Key. Make sure you have the correct key name")
+        }
+        
+        return URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=\(apiKey)&language=en-US&page=1")!
     }
     var movies = [[String: Any]]()
     

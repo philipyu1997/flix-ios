@@ -15,9 +15,13 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // Properties
-    let API_KEY = "***REMOVED***"
+    let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
     var url: URL {
-        return URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(API_KEY)")!
+        guard let apiKey = API_KEY else {
+            fatalError("Error fetching API Key. Make sure you have the correct key name")
+        }
+        
+        return URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
     }
     var movies = [[String: Any]]()
     

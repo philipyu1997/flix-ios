@@ -15,11 +15,15 @@ class MovieTrailerViewController: UIViewController {
     @IBOutlet weak var movieWebView: WKWebView!
     
     // Properties
-    let API_KEY = "***REMOVED***"
+    let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
     let YT_BASE_URL = "https://www.youtube.com/watch?v="
     let YT_AUTOPLAY = "&t=1s&autoplay=1"
     var url: URL {
-        return URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(API_KEY)&language=en-US")!
+        guard let apiKey = API_KEY else {
+            fatalError("Error fetching API Key. Make sure you have the correct key name")
+        }
+        
+        return URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey)&language=en-US")!
     }
     var movieId = Int()
     var movies = [[String: Any]]()
