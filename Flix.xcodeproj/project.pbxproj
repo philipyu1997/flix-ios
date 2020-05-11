@@ -66,15 +66,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		72A865B022125A27007E483E /* View Controllers */ = {
+		7206D0152468DF91005ADC4F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72B8D158220C212800AEC5B0 /* Main.storyboard */,
+				72B8D15D220C212900AEC5B0 /* LaunchScreen.storyboard */,
+				72B8D15B220C212900AEC5B0 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7206D0162468DF9F005ADC4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72C2C0D72214B6DE00068BB3 /* Cells */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7206D0172468DFA9005ADC4F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				72B8D154220C212800AEC5B0 /* AppDelegate.swift */,
 				72A865B122125A85007E483E /* MovieDetailsViewController.swift */,
 				72B8D182220C2FFD00AEC5B0 /* MoviesViewController.swift */,
 				72A865B32212715F007E483E /* MovieGridViewController.swift */,
 				72AA48CC2214EF3600D4DFFB /* MovieTrailerViewController.swift */,
 			);
-			path = "View Controllers";
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7206D0182468DFB7005ADC4F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72B8D160220C212900AEC5B0 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		72B8D148220C212800AEC5B0 = {
@@ -98,12 +125,10 @@
 		72B8D153220C212800AEC5B0 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
-				72C2C0D82214B6FE00068BB3 /* Storyboards */,
-				72C2C0D72214B6DE00068BB3 /* Cells */,
-				72A865B022125A27007E483E /* View Controllers */,
-				72B8D154220C212800AEC5B0 /* AppDelegate.swift */,
-				72B8D15B220C212900AEC5B0 /* Assets.xcassets */,
-				72B8D160220C212900AEC5B0 /* Info.plist */,
+				7206D0172468DFA9005ADC4F /* Controller */,
+				7206D0162468DF9F005ADC4F /* Model */,
+				7206D0182468DFB7005ADC4F /* Supporting Files */,
+				7206D0152468DF91005ADC4F /* View */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -115,15 +140,6 @@
 				72A865B7221276A0007E483E /* MovieGridCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		72C2C0D82214B6FE00068BB3 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				72B8D158220C212800AEC5B0 /* Main.storyboard */,
-				72B8D15D220C212900AEC5B0 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		E92473C90B64052AF7E2A232 /* Pods */ = {
@@ -410,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
-				INFOPLIST_FILE = Flix/Info.plist;
+				INFOPLIST_FILE = "Flix/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8E7FB8SA95;
-				INFOPLIST_FILE = Flix/Info.plist;
+				INFOPLIST_FILE = "Flix/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
