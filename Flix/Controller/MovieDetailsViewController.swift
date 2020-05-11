@@ -51,12 +51,6 @@ class MovieDetailsViewController: UIViewController {
         
     }
     
-    @IBAction func onClick(_ sender: Any) {
-        
-        performSegue(withIdentifier: "firstSegue", sender: nil)
-        
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let movieTrailerViewController = segue.destination as? MovieTrailerViewController else {

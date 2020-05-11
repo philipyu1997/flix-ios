@@ -103,28 +103,28 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as? MovieCell else {
             fatalError("Failed to set cell as MovieCell")
         }
-        
         let movie = movies[indexPath.row]
-        guard let title = movie["title"] as? String else {
-            fatalError("Failed to get movie title.")
-        }
-        guard let synopsis = movie["overview"] as? String else {
-            fatalError("Failed to get movie overview.")
-        }
         
-        cell.titleLabel.text = title
-        cell.synopsisLabel.text = synopsis
-        
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        guard let posterPath = movie["poster_path"] as? String else {
-            fatalError("Failed to get movie poster")
+        if let title = movie["title"] as? String,
+            let synopsis = movie["overview"] as? String,
+            let posterPath = movie["poster_path"] as? String {
+            
+            let baseUrl = "https://image.tmdb.org/t/p/w185"
+            let posterUrl = URL(string: baseUrl + posterPath)
+            
+            cell.titleLabel.text = title
+            cell.synopsisLabel.text = synopsis
+            cell.posterView.af.setImage(withURL: posterUrl!)
         }
-        let posterUrl = URL(string: baseUrl + posterPath)
-        
-        cell.posterView.af.setImage(withURL: posterUrl!)
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return 167
+
     }
     
 }
