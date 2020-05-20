@@ -10,7 +10,7 @@ import UIKit
 
 class MovieGridCell: UICollectionViewCell {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var posterView: UIImageView!
     
 }

@@ -158,7 +158,7 @@
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="780.13392857142856"/>
         </scene>
-        <!--Movie Trailer View Controller-->
+        <!--Trailer-->
         <scene sceneID="YnD-0m-hCu">
             <objects>
                 <viewController id="00V-Qi-TMl" customClass="MovieTrailerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,7 +185,7 @@
                         <viewLayoutGuide key="safeArea" id="sW5-ck-PX0"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ir0-6i-Dt4"/>
+                    <navigationItem key="navigationItem" title="Trailer" id="ir0-6i-Dt4"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="movieWebView" destination="gkH-mj-7Bv" id="e5j-7d-lR8"/>
@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="-658.37438423645324"/>
         </scene>
-        <!--Movie Grid View Controller-->
+        <!--Superhero-->
         <scene sceneID="jUj-fj-TD0">
             <objects>
                 <viewController id="bSS-DY-W8E" customClass="MovieGridViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
@@ -269,7 +269,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iRF-LC-Vil"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZOt-KL-r4n"/>
+                    <navigationItem key="navigationItem" title="Superhero" id="ZOt-KL-r4n"/>
                     <connections>
                         <outlet property="collectionView" destination="IQU-D6-oAK" id="lG1-DF-eUB"/>
                     </connections>
@@ -317,7 +317,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UlU-hE-RLd"/>
+        <segue reference="oDa-Sd-pIS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>

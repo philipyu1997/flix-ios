@@ -11,18 +11,14 @@ import WebKit
 
 class MovieTrailerViewController: UIViewController {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var movieWebView: WKWebView!
     
-    // Properties
-    private let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
-    private let YT_BASE_URL = "https://www.youtube.com/watch?v="
-    private let YT_AUTOPLAY = "&t=1s&autoplay=1"
+    // MARK: - Properties
+    private let apiKey = Constant.apiKey!
+    private let ytBaseUrl = "https://www.youtube.com/watch?v="
+    private let ytAutoplay = "&t=1s&autoplay=1"
     private var url: URL {
-        guard let apiKey = API_KEY else {
-            fatalError("Error fetching API Key. Make sure you have the correct key name")
-        }
-        
         return URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey)&language=en-US")!
     }
     private var movies = [[String: Any]]()
@@ -36,7 +32,17 @@ class MovieTrailerViewController: UIViewController {
         
     }
     
-    func fetchMovieTrailerData() {
+    // MARK: - IBAction Section
+    
+    @IBAction func dismissModal(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // MARK: - Private Function Section
+    
+    private func fetchMovieTrailerData() {
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -59,19 +65,13 @@ class MovieTrailerViewController: UIViewController {
                 guard let YT_KEY = movie["key"] as? String else {
                     fatalError("Failed to get movie YouTube key")
                 }
-                let ytTrailerUrl = URL(string: self.YT_BASE_URL + YT_KEY + self.YT_AUTOPLAY)
+                let ytTrailerUrl = URL(string: self.ytBaseUrl + YT_KEY + self.ytAutoplay)
                 let ytTrailerRequest = URLRequest(url: ytTrailerUrl!)
                 self.movieWebView.load(ytTrailerRequest)
             }
         }
         
         task.resume()
-        
-    }
-    
-    @IBAction func dismissModal(_ sender: Any) {
-        
-        dismiss(animated: true, completion: nil)
         
     }
     

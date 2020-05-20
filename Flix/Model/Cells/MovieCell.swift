@@ -10,7 +10,7 @@ import UIKit
 
 class MovieCell: UITableViewCell {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!

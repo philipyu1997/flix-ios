@@ -11,19 +11,15 @@ import AlamofireImage
 
 class MovieGridViewController: UIViewController {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // Properties
-    private let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
+    // MARK: - Properties
+    private let apiKey = Constant.apiKey!
     private var url: URL {
-        guard let apiKey = API_KEY else {
-            fatalError("Error fetching API Key. Make sure you have the correct key name")
-        }
-        
         return URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=\(apiKey)&language=en-US&page=1")!
     }
-    private var movies = [[String: Any]]()
+    var movies = [[String: Any]]()
     
     override func viewDidLoad() {
         
@@ -37,7 +33,28 @@ class MovieGridViewController: UIViewController {
         
     }
     
-    func fetchMovieData() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let cell = sender as? UICollectionViewCell else {
+            fatalError("Failed to set sender as UICollectionViewCell")
+        }
+        guard let detailsViewController = segue.destination as? MovieDetailsViewController else {
+            fatalError("Failed to set segue destination as MovieDetailsViewController")
+        }
+        
+        // Find the selected movie
+        let indexPath = collectionView.indexPath(for: cell)!
+        let movie = movies[indexPath.item]
+        
+        // Pass the selected movie to the details view controller
+        detailsViewController.movie = movie
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+    }
+    
+    // MARK: - Private Function Section
+    
+    private func fetchMovieData() {
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 2
@@ -71,25 +88,6 @@ class MovieGridViewController: UIViewController {
         }
         
         task.resume()
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let cell = sender as? UICollectionViewCell else {
-            fatalError("Failed to set sender as UICollectionViewCell")
-        }
-        guard let detailsViewController = segue.destination as? MovieDetailsViewController else {
-            fatalError("Failed to set segue destination as MovieDetailsViewController")
-        }
-        
-        // Find the selected movie
-        let indexPath = collectionView.indexPath(for: cell)!
-        let movie = movies[indexPath.item]
-        
-        // Pass the selected movie to the details view controller
-        detailsViewController.movie = movie
-        collectionView.deselectItem(at: indexPath, animated: true)
         
     }
     

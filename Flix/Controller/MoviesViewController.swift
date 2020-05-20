@@ -11,19 +11,15 @@ import AlamofireImage
 
 class MoviesViewController: UIViewController {
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
-    // Properties
-    private let API_KEY = fetchFromPlist(forResource: "ApiKeys", forKey: "API_KEY")
+    // MARK: - Properties
+    private let apiKey = Constant.apiKey!
     private var url: URL {
-        guard let apiKey = API_KEY else {
-            fatalError("Error fetching API Key. Make sure you have the correct key name")
-        }
-        
         return URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")!
     }
-    private var movies = [[String: Any]]()
+    var movies = [[String: Any]]()
     
     override func viewDidLoad() {
         
@@ -37,7 +33,28 @@ class MoviesViewController: UIViewController {
         
     }
     
-    func fetchMovieData() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let cell = sender as? UITableViewCell else {
+            fatalError("Failed to set sender as UITableViewCell")
+        }
+        guard let detailsViewController = segue.destination as? MovieDetailsViewController else {
+            fatalError("Failed to set segue destination as MovieDetailsViewController")
+        }
+        
+        // Find the selected movie
+        let indexPath = tableView.indexPath(for: cell)!
+        let movie = movies[indexPath.row]
+        
+        // Pass the selected movie to the details view controller
+        detailsViewController.movie = movie
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+    // MARK: - Private Function Section
+    
+    private func fetchMovieData() {
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -64,25 +81,6 @@ class MoviesViewController: UIViewController {
         }
         
         task.resume()
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let cell = sender as? UITableViewCell else {
-            fatalError("Failed to set sender as UITableViewCell")
-        }
-        guard let detailsViewController = segue.destination as? MovieDetailsViewController else {
-            fatalError("Failed to set segue destination as MovieDetailsViewController")
-        }
-        
-        // Find the selected movie
-        let indexPath = tableView.indexPath(for: cell)!
-        let movie = movies[indexPath.row]
-        
-        // Pass the selected movie to the details view controller
-        detailsViewController.movie = movie
-        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
@@ -122,9 +120,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
+        
         return 167
-
+        
     }
     
 }
