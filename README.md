@@ -29,7 +29,7 @@ Flix is a read-only movie browsing app - similar to Fandango and Rotten Tomatoes
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/81526152-b3e0d100-930b-11ea-8964-b36eeeafd536.gif" width=250>
+<img src="https://github.com/py415/app-resources/blob/master/ios/ios-flix.gif" width=250>
 
 ## APIs
 
